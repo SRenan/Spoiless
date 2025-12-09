@@ -1,0 +1,19 @@
+/* Hidden score styling */
+.imspo_mt__t-sc .imspo_mt__tt-w.spoiless-hidden {
+  cursor: pointer;
+  background: #e8e8e8;
+  border-radius: 2px;
+  padding: 0 2px;
+  user-select: none;
+}
+
+/* Revealed score styling */
+.imspo_mt__t-sc .imspo_mt__tt-w.spoiless-revealed {
+  cursor: default;
+  background: none;
+}
+
+/* Hide winner triangle */
+.imspo_mt__triangle.spoiless-hidden {
+  visibility: hidden;
+}

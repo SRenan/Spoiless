@@ -1,0 +1,142 @@
+/* Spoiler-free VOD table */
+
+.spoiless-vod-table {
+  background: #1a1a2e;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  font-family: inherit;
+}
+
+.spoiless-vod-table > h3 {
+  margin: 0 0 16px 0;
+  color: #fff;
+  font-size: 18px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 8px;
+}
+
+.spoiless-section {
+  margin-bottom: 20px;
+}
+
+.spoiless-section h4 {
+  margin: 0 0 8px 0;
+  color: #aaa;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.spoiless-vod-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.spoiless-vod-table th,
+.spoiless-vod-table td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+.spoiless-vod-table th {
+  color: #888;
+  font-weight: normal;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.spoiless-vod-table td {
+  color: #fff;
+}
+
+.spoiless-vod-table a {
+  color: #6b9fff;
+  text-decoration: none;
+}
+
+.spoiless-vod-table a:hover {
+  text-decoration: underline;
+}
+
+.spoiless-player,
+.spoiless-score {
+  cursor: pointer;
+  background: #333;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  min-width: 60px;
+  text-align: center;
+}
+
+.spoiless-score {
+  min-width: 40px;
+}
+
+.spoiless-player:hover,
+.spoiless-score:hover {
+  background: #444;
+}
+
+.spoiless-player.spoiless-revealed,
+.spoiless-score.spoiless-revealed {
+  background: transparent;
+  cursor: default;
+}
+
+.spoiless-hint {
+  margin: 12px 0 0 0;
+  color: #666;
+  font-size: 12px;
+}
+
+.spoiless-warning {
+  color: #e8a838;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+/* VOD links */
+.spoiless-vods {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.spoiless-vod-link {
+  color: #6b9fff;
+  text-decoration: none;
+  padding: 2px 6px;
+  background: #2a3a5a;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.spoiless-vod-link:hover {
+  background: #3a4a6a;
+  text-decoration: none;
+}
+
+.spoiless-vod-hidden {
+  cursor: pointer;
+  background: #333;
+  color: #888;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+  min-width: 20px;
+  text-align: center;
+  display: inline-block;
+}
+
+.spoiless-vod-hidden:hover {
+  background: #444;
+}
+
+.spoiless-vod-none {
+  background: transparent;
+  color: #555;
+  cursor: default;
+}
