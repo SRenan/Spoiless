@@ -1,3 +1,5 @@
+var browser = browser || chrome;
+
 // Check if Google Sports hiding is enabled
 browser.storage.local.get('googleEnabled').then(function(result) {
   // Default to enabled if not set

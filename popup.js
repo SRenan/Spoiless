@@ -1,3 +1,5 @@
+var browser = browser || chrome;
+
 // Load saved settings
 browser.storage.local.get(['googleEnabled', 'liquipediaEnabled']).then(function(result) {
   // Default to enabled if not set

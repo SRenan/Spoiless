@@ -1,3 +1,5 @@
+var browser = browser || chrome;
+
 // Liquipedia spoiler-free VOD table
 // Extracts matches with VOD links and displays them grouped by section
 
@@ -148,8 +150,16 @@ function buildVodTable() {
     return;
   }
 
-  // Build header
-  container.appendChild(el('h3', null, 'Spoiler-Free VOD List'));
+  // Build header with collapse toggle
+  var header = el('div', 'spoiless-header');
+  header.appendChild(el('h3', null, 'Spoiler-Free VOD List'));
+  var toggle = el('span', 'spoiless-toggle', '▼');
+  toggle.title = 'Collapse';
+  header.appendChild(toggle);
+  container.appendChild(header);
+
+  // Content wrapper for collapsing
+  var contentWrapper = el('div', 'spoiless-content');
 
   // Build sections
   sectionNames.forEach(function(sectionName) {
@@ -219,10 +229,11 @@ function buildVodTable() {
 
     table.appendChild(tbody);
     sectionDiv.appendChild(table);
-    container.appendChild(sectionDiv);
+    contentWrapper.appendChild(sectionDiv);
   });
 
-  container.appendChild(el('p', 'spoiless-hint', 'Click to reveal players or scores'));
+  contentWrapper.appendChild(el('p', 'spoiless-hint', 'Click to reveal players or scores'));
+  container.appendChild(contentWrapper);
 
   // Insert at top of content
   var content = document.querySelector('.mw-parser-output') || document.querySelector('#mw-content-text') || document.body;
@@ -244,6 +255,23 @@ new MutationObserver(buildVodTable).observe(document.body, {
 
 // Click to reveal player names, scores, or VODs
 document.addEventListener('click', function(e) {
+  // Handle collapse toggle
+  var toggle = e.target.closest('.spoiless-toggle');
+  if (toggle) {
+    var container = toggle.closest('.spoiless-vod-table');
+    var content = container.querySelector('.spoiless-content');
+    if (content.classList.contains('spoiless-collapsed')) {
+      content.classList.remove('spoiless-collapsed');
+      toggle.textContent = '▼';
+      toggle.title = 'Collapse';
+    } else {
+      content.classList.add('spoiless-collapsed');
+      toggle.textContent = '▶';
+      toggle.title = 'Expand';
+    }
+    return;
+  }
+
   var player = e.target.closest('.spoiless-player');
   if (player && player.dataset.name && !player.classList.contains('spoiless-revealed')) {
     player.textContent = player.dataset.name;
